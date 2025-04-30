@@ -1,0 +1,28 @@
+# Payment Service (Service B) API Specification
+openapi: 3.0.0
+info:
+  title: Payment Service API
+  version: 1.0.0
+paths:
+  /pay:
+    post:
+      summary: Process payment for a booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                booking_id: { type: integer }
+                amount: { type: number }
+      responses:
+        "200":
+          description: Payment confirmation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payment_id: { type: integer }
+                  status: { type: string }
